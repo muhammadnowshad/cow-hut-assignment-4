@@ -3,7 +3,7 @@ import { Model, Types } from 'mongoose'
 import { IAdmin } from '../admin/admin.interface'
 
 export type IUser = {
-  id: string
+  id: string;
   role: string
   password: string
   needsPasswordChange: boolean
@@ -21,8 +21,10 @@ export type IUser = {
 
 export type UserModel = {
   isUserExist(
-    id: string
-  ): Promise<Pick<IUser, 'id' | 'password' | 'role' | 'needsPasswordChange'>>
+    phoneNumber: string
+  ): Promise<
+    Pick<IUser, 'phoneNumber' | 'password' | 'role' | 'needsPasswordChange'>
+  >
   isPasswordMatched(
     givenPassword: string,
     savedPassword: string

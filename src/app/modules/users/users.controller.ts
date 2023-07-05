@@ -7,23 +7,18 @@ import { IUser } from './users.interface'
 import { UserService } from './users.service'
 import { paginationFields } from '../../../constants/pagination'
 
-const createUser = async (req: Request, res: Response) => {
-  try {
-    const { user } = req.body
-    const result = await UserService.createUser(user)
-    res.status(200).json({
-      success: true,
-      statusCode: 200,
-      message: 'Users created successfully',
-      data: result,
-    })
-  } catch (err) {
-    res.status(400).json({
-      success: false,
-      message: 'Failed to created users',
-    })
-  }
-}
+
+const createUser = catchAsync(async (req: Request, res: Response) => {
+  const { ...userData } = req.body
+  const result = await UserService.createUser(userData)
+
+  sendResponse<IUser | null>(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Users created successfully!',
+    data: result,
+  });
+});
 
 const getAllUsers = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {

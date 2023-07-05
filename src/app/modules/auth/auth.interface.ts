@@ -2,7 +2,7 @@ import { ENUM_USER_ROLE } from "../../../enums/user"
 
 
 export type ILoginUser = {
-  id: string
+  phoneNumber: string
   password: string
 }
 
@@ -17,7 +17,7 @@ export type IRefreshTokenResponse = {
 }
 
 export type IVerifiedLoginUser = {
-  userId: string
+  phoneNumber: string
   role: ENUM_USER_ROLE
 }
 
