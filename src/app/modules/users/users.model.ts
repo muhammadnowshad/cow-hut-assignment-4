@@ -27,6 +27,7 @@ const userSchema = new Schema<IUser, UserModel>(
     },
     role: {
       type: String,
+      enum: ['buyer', 'seller'],
       required: true,
     },
     name: {
@@ -54,7 +55,7 @@ const userSchema = new Schema<IUser, UserModel>(
     },
     income: {
       type: Number,
-      required: true,
+      default: 0,
     },
     admin: {
       type: Schema.Types.ObjectId,

@@ -3,9 +3,11 @@ import express from 'express'
 import { AuthController } from './auth.controller'
 import { AuthValidation } from './auth.validation'
 import validateRequest from '../../middlewares/validateRequest'
+import usersController from '../users/users.controller'
 // import auth from '../../middlewares/auth'
 
 const router = express.Router()
+router.post('/signup', usersController.createUser);
 
 router.post(
   '/login',

@@ -3,8 +3,8 @@ import { Model, Types } from 'mongoose'
 import { IAdmin } from '../admin/admin.interface'
 
 export type IUser = {
-  id: string;
-  role: string
+  id: string
+  role: 'buyer' | 'seller'
   password: string
   needsPasswordChange: boolean
   passwordChangedAt?: Date

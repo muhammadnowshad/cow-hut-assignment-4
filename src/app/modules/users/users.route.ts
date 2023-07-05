@@ -3,7 +3,7 @@ import usersController from './users.controller'
 
 const router = express.Router()
 
-router.post('/auth/signup', usersController.createUser)
+
 router.get('/:id', usersController.getSingleUser)
 router.patch('/:id', usersController.updateUser)
 router.delete('/:id', usersController.deleteUser)
